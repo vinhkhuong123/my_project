@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Header from "./Header";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
