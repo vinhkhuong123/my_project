@@ -50,7 +50,8 @@ async def root():
 # burgers route
 @app.post('/users')
 async def login(request: User):
-    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    # conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
     query = f"SELECT [username] AS Username, [password] AS Password FROM [dbo].[users]  where username = '{request.username}' and password = '{request.password}'"
     cursor = conn.cursor()
     cursor.execute(query)  
@@ -60,7 +61,8 @@ async def login(request: User):
     
 @app.get('/products')
 async def getProduct():
-    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    # conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
     query = "SELECT [id] AS Id ,[product_name] AS ProductName ,[product_price] AS productPrice ,[product_details] AS ProductDetails ,[product_rate] AS ProductRate ,[img] AS Img  FROM [dbo].[product]" # Dòng này thực hiện truy vấn và trả về json
     cursor = conn.cursor()
     cursor.execute(query)  
@@ -76,7 +78,8 @@ async def getProduct():
 async def insertProduct(request: Product):
     print(request)
 
-    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    # conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
     query = f"INSERT INTO [dbo].[product] ([product_name], [product_price], [product_details], [product_rate], [img])  VALUES ('{request.productName}', '{request.productPrice}', '{request.productDetails}', {request.productRate}, '{request.img}')" # Dòng này thực hiện truy vấn và trả về json
 
     cursor = conn.cursor()
@@ -89,7 +92,8 @@ async def insertProduct(request: Product):
 @app.put('/products/id')
 async def UpdateProduct(id: int, request: Product):
 
-    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    # conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
     query = f"UPDATE [dbo].[product] SET [product_name] = '{request.productName}',[product_price] = '{request.productPrice}',[product_details] = N'{request.productDetails}',[product_rate] = '{request.productRate}',[img] = '{request.img}' WHERE id = '{id}'" 
 
     cursor = conn.cursor()
@@ -105,7 +109,8 @@ async def UpdateProduct(id: int, request: Product):
 @app.delete('/products/id')
 async def UpdateProduct(id: int):
 
-    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    # conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
+    conn = pyodbc.connect("DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;")
     query = f"DELETE FROM [dbo].[product] WHERE id = '{id}'" 
 
     cursor = conn.cursor()
