@@ -1,12 +1,9 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Home from "./Home";
-import Header from "./Header";
-import LoginForm from "./loginform";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import Details from "./Details";
-import ProductManager from "./product_manage";
+import Home from "./components/Home";
+import LoginForm from "./loginform";
+import Details from "./components/Details";
+import ProductManager from "./components/ProductManager";
 
 function App() {
   return (

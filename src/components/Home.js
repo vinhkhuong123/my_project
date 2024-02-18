@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function Home() {
   const navigate = useNavigate();
@@ -43,14 +44,12 @@ function Home() {
                   <Card.Text>{item.ProductDetails}</Card.Text>
                   <Card.Text>Đánh giá: {item.ProductRate} sao</Card.Text>
                   <Button variant="primary">
-                    {" "}
                     <Link
                       to={`/detail/${item.Id}`}
                       style={{ textDecoration: "none", color: "white" }}
                     >
-                      {" "}
                       dat hang
-                    </Link>{" "}
+                    </Link>
                   </Button>
                 </Card.Body>
               </Card>
