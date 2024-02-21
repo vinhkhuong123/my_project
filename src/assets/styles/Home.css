@@ -1,0 +1,51 @@
+.row {
+    padding: 50px 400px;;
+    max-width: 99.75vw;
+    background: url("https://digwallpapers.com/wallpapers/full/c/0/7/51049-2800x1900-neon-colored-wallpaper-desktop-hd.jpg");
+
+    .banner {
+        margin-bottom: 30px;
+    }
+
+    .item-container {
+        display: flex;
+        gap: 10px;
+        padding: 0;
+        justify-content: space-between;
+    }
+
+    .item {
+        border: none;
+        background: transparent;
+
+       .border {
+            border-radius: 18px 0 18px 0;
+            background: white;
+            border: 10px solid gray;
+            padding: 10px 10px 0 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+            .item-name {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            .prize {
+                font-size: 16px;
+                color: #d70018;
+                font-weight: 700;
+            }
+
+            .detail {
+                background: #f3f4f6;
+                padding: 5px 15px;
+                border-radius: 5px;
+            }
+
+            .rating {
+                color: #f59e0b;
+                font-weight: 500;
+            }
+       }
+    }
+}

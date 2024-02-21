@@ -1,0 +1,8 @@
+.manager-title {
+    margin-top: 15px;
+}
+
+.manager-btn {
+    display: flex;
+    gap: 10px;
+}

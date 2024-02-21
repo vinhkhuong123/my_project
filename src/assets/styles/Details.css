@@ -1,0 +1,45 @@
+.detail-title {
+    font-size: 30px;
+    padding: 15px 28px;
+}
+
+.detail-container {
+    display: flex;
+
+    .d1 {
+        border: none;
+        margin-left: 28px;
+
+        .d2 {
+            display: flex;
+            padding: 0 28px;
+            justify-content: space-between;
+
+            .prize {
+                font-size: 16px;
+                color: #d70018;
+                font-weight: 700;
+            }
+
+            .rating {
+                color: #f59e0b;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .d3 {
+        border: none;
+
+        .d3-title {
+            font-size: 24px;
+        }
+
+        .detail {
+            font-size: 16px;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: solid lightgrey 1px;
+        }
+    }
+}
