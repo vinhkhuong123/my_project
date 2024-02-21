@@ -1,0 +1,35 @@
+.m-5 {
+    height: 100vh;
+    margin: 0!important;
+    padding: 250px 100px;
+    background: url("https://i.pinimg.com/originals/35/70/c4/3570c459a9d12ea21517ebefb8ab99a9.jpg") no-repeat;
+
+    Form {
+        width: 500px;
+        margin: 0 auto;
+        padding: 50px;
+        background: white;
+        border-radius: 24px;
+
+        .login-title {
+            width: 100%;
+            font-size: 25px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .login-text {
+            color: rgb(44, 142, 172);
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            border-radius: 24px;
+            margin-top: 30px;
+            background: black;
+        }
+    }
+    
+}
