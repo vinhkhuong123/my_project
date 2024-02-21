@@ -19,8 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# connection = "DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;"
-connection = "DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;"
+connection = "DRIVER={SQL Server};Server=DESKTOP-CDO0SQ2\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;"
+# connection = "DRIVER={SQL Server};Server=DESKTOP-AHR7HDN\SQLEXPRESS;Database=Mydata;Trusted_Connection=yes;"
 
 T = TypeVar('T')
 class ResponseModel(Generic[T]):
