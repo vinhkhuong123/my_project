@@ -34,14 +34,14 @@ function Home() {
                 return (
                     <Card className="item col-4 mb-2">
                         <div className="border">
-                            <Card.Img variant="top" src={item.Img} height="300px" width="100px"/>
+                            <Card.Img variant="top" src={item.img} height="300px" width="100px"/>
                             <Card.Body>
-                                <Card.Title className="item-name">{item.ProductName}</Card.Title>
+                                <Card.Title className="item-name">{item.productName}</Card.Title>
                                 <Card.Text className="prize">{item.productPrice}<sup>₫</sup></Card.Text>
-                                <Card.Text className="detail">{item.ProductDetails}</Card.Text>
-                                <Card.Text className="rating">Rating: {item.ProductRate} star</Card.Text>
+                                <Card.Text className="detail">{item.productDetails}</Card.Text>
+                                <Card.Text className="rating">Rating: {item.productRate} star</Card.Text>
                                 <Button variant="primary">
-                                    <Link to={`/detail/${item.Id}`} className="detail-btn" style={{ textDecoration: "none", color: "white" }}>Detail</Link>
+                                    <Link to={`/detail/${item.id}`} className="detail-btn" style={{ textDecoration: "none", color: "white" }}>Detail</Link>
                                 </Button>
                             </Card.Body>
                             </div>

@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Modal, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const EditProduct = ({ onClose, editingProductId, onProductAdded }) => {
-    const [productDetails, setProductDetails] = useState({
-        productName: '',
-        productPrice: 0,
-        productDetails: '',
-        productRate: 0,
-        img: '',
-    });
+  const [productDetails, setProductDetails] = useState();
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -88,6 +82,41 @@ const EditProduct = ({ onClose, editingProductId, onProductAdded }) => {
 
     };
 
+    if (editingProductId) {
+      fetchProductData();
+    }
+  }, [editingProductId]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(!productDetails.productPrice){
+      productDetails.productPrice = 0;
+    }
+
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/products/${editingProductId}`,
+        productDetails
+      );
+
+      if (response.data.status) {
+        console.log("Product updated successfully!");
+        onClose();
+        onProductAdded();
+
+        if (this.props.onProductUpdated) {
+          this.props.onProductUpdated();
+        }
+      } else {
+        console.error("Error updating product:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  if (productDetails) {
     return (
         <>
             <Modal show={true} onHide={onClose}>
@@ -132,6 +161,9 @@ const EditProduct = ({ onClose, editingProductId, onProductAdded }) => {
             </Modal>
         </>
     );
+  } else {
+    return <></>;
+  }
 };
 
 export default EditProduct;

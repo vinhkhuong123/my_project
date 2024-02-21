@@ -44,7 +44,7 @@ function ProductManager() {
         try {
             const response = await axios.delete(`http://localhost:8000/products/${productId}`);
             if (response.data.data.isSuccess) {
-                setProduct(product.filter((item) => item.Id !== productId));
+                setProduct(product.filter((item) => item.id !== productId));
             } else {
                 console.error('Error:', response.data.message);
             }
@@ -74,19 +74,19 @@ function ProductManager() {
                         <tbody>
                             {product.map((item) => {
                                 return (
-                                <tr key={item.Id}>
-                                    <td>{item.Id}</td>
-                                    <td>{item.ProductName}</td>
+                                <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.productName}</td>
                                     <td>{item.productPrice}<sup>₫</sup></td>
-                                    <td>{item.Img}</td>
-                                    <td>{item.ProductDetails}</td>
-                                    <td>{item.ProductRate}</td>
+                                    <td>{item.img}</td>
+                                    <td>{item.productDetails}</td>
+                                    <td>{item.productRate}</td>
                                     <td className="manager-btn">
-                                    {item.Id && (
-                                        <Button variant="primary" onClick={() => handleEditProduct(item.Id)}>Edit</Button>
+                                    {item.id && (
+                                        <Button variant="primary" onClick={() => handleEditProduct(item.id)}>Edit</Button>
                                     )}
-                                    {item.Id && (
-                                        <Button variant="danger" onClick={() => handleDeleteProduct(item.Id)}>Delete</Button>
+                                    {item.id && (
+                                        <Button variant="danger" onClick={() => handleDeleteProduct(item.id)}>Delete</Button>
                                     )}
                                     </td>
                                 </tr>

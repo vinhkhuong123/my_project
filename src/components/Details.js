@@ -29,19 +29,19 @@ function Details() {
     return (
         <>
             <Header />
-            <Card.Title className="detail-title">{product.ProductName}</Card.Title>
+            <Card.Title className="detail-title">{product.productName}</Card.Title>
             <div className="detail-container">
                 <Card className="d1 col-3 mb-2">
-                    <Card.Img variant="top" src={product.Img}/>
+                    <Card.Img variant="top" src={product.img}/>
                     <div className="d2">
                         <Card.Text className="prize">{product.productPrice}<sup>₫</sup></Card.Text>
-                        <Card.Text className="rating">Rating: {product.ProductRate} star</Card.Text>
+                        <Card.Text className="rating">Rating: {product.productRate} star</Card.Text>
                     </div>
                 </Card>
                 <Card className="d3 col-4 mb-2">
                     <Card.Text className="detail">
                         <Card.Title className="d3-title">Thông tin sản phẩm</Card.Title>
-                        {product.ProductDetails}
+                        {product.productDetails}
                     </Card.Text>
                 </Card>
             </div>

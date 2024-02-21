@@ -1,5 +1,4 @@
 import pyodbc
-import json
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Generic, TypeVar
@@ -64,7 +63,7 @@ async def login(request: User):
 @app.get('/products')
 async def getProduct():
     conn = pyodbc.connect(connection)
-    query = "SELECT [id] AS Id ,[product_name] AS ProductName ,[product_price] AS productPrice ,[product_details] AS ProductDetails ,[product_rate] AS ProductRate ,[img] AS Img  FROM [dbo].[product]" # Dòng này thực hiện truy vấn và trả về json
+    query = "SELECT [id] AS id ,[product_name] AS productName ,[product_price] AS productPrice ,[product_details] AS productDetails ,[product_rate] AS productRate ,[img] AS img  FROM [dbo].[product]" # Dòng này thực hiện truy vấn và trả về json
     cursor = conn.cursor()
     cursor.execute(query)  
     columns = [column[0] for column in cursor.description]
@@ -78,7 +77,7 @@ async def getProduct():
 @app.get('/products/{id}')
 async def getProduct(id:int):
     conn = pyodbc.connect(connection)
-    query = f"SELECT [id] AS Id ,[product_name] AS ProductName ,[product_price] AS productPrice ,[product_details] AS ProductDetails ,[product_rate] AS ProductRate ,[img] AS Img  FROM [dbo].[product] where id = {id}" # Dòng này thực hiện truy vấn và trả về json
+    query = f"SELECT [id] AS id ,[product_name] AS productName ,[product_price] AS productPrice ,[product_details] AS productDetails ,[product_rate] AS productRate ,[img] AS img  FROM [dbo].[product] where id = {id}" # Dòng này thực hiện truy vấn và trả về json
     cursor = conn.cursor()
     cursor.execute(query)  
     columns = [column[0] for column in cursor.description]
@@ -95,7 +94,7 @@ async def insertProduct(request: Product):
     print(request)
 
     conn = pyodbc.connect(connection)
-    query = f"INSERT INTO [dbo].[product] ([product_name], [product_price], [product_details], [product_rate], [img])  VALUES ('{request.productName}', '{request.productPrice}', '{request.productDetails}', {request.productRate}, '{request.img}')" # Dòng này thực hiện truy vấn và trả về json
+    query = f"INSERT INTO [dbo].[product] ([product_name], [product_price], [product_details], [product_rate], [img])  VALUES (N'{request.productName}', '{request.productPrice}', N'{request.productDetails}', {request.productRate}, '{request.img}')" # Dòng này thực hiện truy vấn và trả về json
 
     cursor = conn.cursor()
     cursor.execute(query)  
@@ -108,7 +107,7 @@ async def insertProduct(request: Product):
 async def UpdateProduct(id: int, request: Product):
 
     conn = pyodbc.connect(connection)
-    query = f"UPDATE [dbo].[product] SET [product_name] = '{request.productName}',[product_price] = '{request.productPrice}',[product_details] = N'{request.productDetails}',[product_rate] = '{request.productRate}',[img] = '{request.img}' WHERE id = '{id}'" 
+    query = f"UPDATE [dbo].[product] SET [product_name] = N'{request.productName}',[product_price] = '{request.productPrice}',[product_details] = N'{request.productDetails}',[product_rate] = '{request.productRate}',[img] = '{request.img}' WHERE id = '{id}'" 
 
     cursor = conn.cursor()
     cursor.execute(query)  
