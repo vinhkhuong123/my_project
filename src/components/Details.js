@@ -29,15 +29,15 @@ function Details() {
       <Card className="m-auto col-4 mb-2">
         <Card.Img
           variant="top"
-          src={product.Img}
+          src={product.img}
           height="300px"
           width="100px"
         />
         <Card.Body>
-          <Card.Title>{product.ProductName}</Card.Title>
+          <Card.Title>{product.productName}</Card.Title>
           <Card.Text>{product.productPrice}</Card.Text>
-          <Card.Text>{product.ProductDetails}</Card.Text>
-          <Card.Text>đánh giá: {product.ProductRate} sao</Card.Text>
+          <Card.Text>{product.productDetails}</Card.Text>
+          <Card.Text>đánh giá: {product.productRate} sao</Card.Text>
         </Card.Body>
       </Card>
     </>

@@ -34,20 +34,21 @@ function Home() {
               <Card className="col-4 mb-2">
                 <Card.Img
                   variant="top"
-                  src={item.Img}
+                  src={item.img}
                   height="300px"
                   width="100px"
                 />
                 <Card.Body>
-                  <Card.Title>{item.ProductName}</Card.Title>
+                  <Card.Title>{item.productName}</Card.Title>
                   <Card.Text>{item.productPrice}</Card.Text>
-                  <Card.Text>{item.ProductDetails}</Card.Text>
-                  <Card.Text>Đánh giá: {item.ProductRate} sao</Card.Text>
+                  <Card.Text>{item.productDetails}</Card.Text>
+                  <Card.Text>Đánh giá: {item.productRate} sao</Card.Text>
                   <Button variant="primary">
                     <Link
-                      to={`/detail/${item.Id}`}
+                      to={`/detail/${item.id}`}
                       style={{ textDecoration: "none", color: "white" }}
                     >
+                      
                       dat hang
                     </Link>
                   </Button>
